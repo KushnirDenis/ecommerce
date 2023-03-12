@@ -27,6 +27,14 @@ public class AppDbContext : DbContext
         Database.EnsureCreated();
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder
+            .Entity<CategoryName>()
+            .HasIndex(c => new { c.Name, c.Language })
+            .IsUnique();
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         var connectionString = Environment.GetEnvironmentVariable("PGSQL_STRING") + "Database=ecommerce";
