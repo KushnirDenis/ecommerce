@@ -6,6 +6,7 @@ namespace Ecommerce.DAL;
 public class AppDbContext : DbContext
 {
     public DbSet<CategoryAttribute> CategoryAttributes { get; set; }
+    public DbSet<CategoryImage> CategoryImages { get; set; }
     public DbSet<CategoryAttributeName> CategoryAttributeNames { get; set; }
     public DbSet<CategoryDiscount> Discounts { get; set; }
     public DbSet<CategoryName> CategoryNames { get; set; }
@@ -33,6 +34,10 @@ public class AppDbContext : DbContext
             .Entity<CategoryName>()
             .HasIndex(c => new { c.Name, c.Language })
             .IsUnique();
+
+        modelBuilder
+            .Entity<CategoryImage>()
+            .HasKey(c => c.CategoryId);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
