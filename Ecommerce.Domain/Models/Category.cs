@@ -3,7 +3,7 @@ namespace Ecommerce.Domain.Models;
 public class Category
 {
     public int Id { get; set; }
-    public CategoryName Name { get; set; }
+    public List<CategoryName> Names { get; set; }
     public List<CategoryAttribute>? Attributes { get; set; }
     public CategoryImage Image { get; set; }
     public int? ParentCategoryId { get; set; }

@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce", "Ecommerce\Ecom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Domain", "Ecommerce.Domain\Ecommerce.Domain.csproj", "{1C72ABF0-5E21-482E-81BB-F3CD162BB823}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.DAL", "Ecommerce.DAL\Ecommerce.DAL.csproj", "{36751548-439C-43BF-967F-A221373C7FE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{1C72ABF0-5E21-482E-81BB-F3CD162BB823}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C72ABF0-5E21-482E-81BB-F3CD162BB823}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C72ABF0-5E21-482E-81BB-F3CD162BB823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36751548-439C-43BF-967F-A221373C7FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36751548-439C-43BF-967F-A221373C7FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36751548-439C-43BF-967F-A221373C7FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36751548-439C-43BF-967F-A221373C7FE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

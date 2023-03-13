@@ -36,4 +36,10 @@
     <data name="AlreadyExists" xml:space="preserve">
         <value />
     </data>
+    <data name="ImageMustBeJpg" xml:space="preserve">
+        <value />
+    </data>
+    <data name="NotExists" xml:space="preserve">
+        <value />
+    </data>
 </root>
