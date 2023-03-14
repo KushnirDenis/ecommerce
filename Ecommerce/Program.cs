@@ -10,15 +10,13 @@ var services = builder.Services;
 services.AddScoped<AppDbContext>();
 
 services.AddScoped<IValidator<CreateCategoryDto>, CreateCategoryDtoValidator>();
-services.AddScoped<IValidator<AddNameInAnotherLanguageDto>, 
-    AddNameInAnotherLanguageDtoValidator>();
 
 services.AddLocalization();
 services.AddApiVersioning();
 services.AddControllers()
     .AddJsonOptions(x =>
         x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-;
+
 services.AddRouting();
 
 
