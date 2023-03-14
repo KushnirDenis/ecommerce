@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Net.Http.Headers;
 using Ecommerce.DAL;
 using Ecommerce.Domain.Models;
@@ -35,6 +36,7 @@ public class CategoriesController : ControllerBase
     {
         var categories = _db.CategoryNames
             .Include(cn => cn.Category)
+            .ThenInclude(c => c.Image)
             .Where(c => c.Language == lang && c.Category.ParentCategoryId == null)
             .Select(cn => CategoriesDto.MapFromCategoryName(cn))
             .ToList();
@@ -48,15 +50,18 @@ public class CategoriesController : ControllerBase
     {
         foreach (var category in categories)
         {
-            var sub = _db.CategoryNames.Include(c => c.Category)
+            var sub = _db.CategoryNames
+                .Include(c => c.Category)
+                .ThenInclude(c => c.Image)
                 .Where(cn => cn.Category.ParentCategoryId == category.CategoryId &&
                              cn.Language == lang)
                 .Select(cn => CategoriesDto.MapFromCategoryName(cn)).ToList();
-            
+
             if (sub.Count == 0)
                 return categories;
-            category.Childrens?.AddRange(GetCategories(sub, lang));
+            category.Childrens.AddRange(GetCategories(sub, lang));
         }
+
         return categories;
     }
 
