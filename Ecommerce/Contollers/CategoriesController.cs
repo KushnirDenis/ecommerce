@@ -1,5 +1,3 @@
-using System.Diagnostics;
-using System.Net.Http.Headers;
 using Ecommerce.DAL;
 using Ecommerce.Domain.Models;
 using Ecommerce.Localization;
@@ -7,9 +5,7 @@ using Ecommerce.Models;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.Extensions.Localization;
-using StringWithQualityHeaderValue = Microsoft.Net.Http.Headers.StringWithQualityHeaderValue;
 
 namespace Ecommerce.Contollers;
 
@@ -75,10 +71,16 @@ public class CategoriesController : ControllerBase
             return BadRequest(new ErrorMessage(result.Errors
                 .Select(e => e.ErrorMessage)));
 
+        if (!await _db.Categories.AnyAsync(c => c.Id == categoryDto.ParentCategoryId))
+            return BadRequest(new ErrorMessage(_localizer["Category"] +
+                                               " " +
+                                               _localizer["NotExists"]));
+
         foreach (var categoryName in categoryDto.Names)
         {
-            if (await _db.CategoryNames.AnyAsync(c => c.Name == categoryName.Name
-                                                      && c.Language == categoryName.Language))
+            if (await _db.CategoryNames.AnyAsync(c => c.Name == categoryName.Name &&
+                                                      c.Language == categoryName.Language &&
+                                                      c.Category.ParentCategoryId == categoryDto.ParentCategoryId))
                 return Conflict(new ErrorMessage(_localizer["Category"] +
                                                  " " +
                                                  _localizer["AlreadyExists"]));
@@ -95,6 +97,7 @@ public class CategoriesController : ControllerBase
             {
                 Filename = filename
             },
+            ParentCategoryId = categoryDto.ParentCategoryId,
             Names = new List<CategoryName>(categoryNames)
         };
 

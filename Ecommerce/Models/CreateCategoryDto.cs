@@ -7,6 +7,7 @@ namespace Ecommerce.Models;
 
 public class CreateCategoryDto
 {
+    public int? ParentCategoryId { get; set; }
     public List<CategoryNameDto> Names { get; set; }
     /// <summary>
     /// Base64 Image
