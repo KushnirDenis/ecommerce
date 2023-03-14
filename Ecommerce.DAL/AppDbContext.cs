@@ -32,7 +32,7 @@ public class AppDbContext : DbContext
     {
         modelBuilder
             .Entity<CategoryName>()
-            .HasIndex(c => new { c.Name, c.Language })
+            .HasIndex(c => new { c.Name, c.Language, c.CategoryId })
             .IsUnique();
 
         modelBuilder
