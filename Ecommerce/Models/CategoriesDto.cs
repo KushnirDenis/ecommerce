@@ -7,7 +7,7 @@ public class CategoriesDto
     public int CategoryId { get; set; }
     public string Name { get; set; }
     public string ImageFilename { get; set; }
-    public List<CategoriesDto> Childrens { get; set; } = new();
+    public List<CategoriesDto> Children { get; set; } = new();
 
     public static CategoriesDto MapFromCategoryName(CategoryName categoryName)
     {

@@ -55,7 +55,7 @@ public class CategoriesController : ControllerBase
 
             if (sub.Count == 0)
                 return categories;
-            category.Childrens.AddRange(GetCategories(sub, lang));
+            category.Children.AddRange(GetCategories(sub, lang));
         }
 
         return categories;
