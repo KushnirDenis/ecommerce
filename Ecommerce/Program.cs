@@ -11,6 +11,17 @@ services.AddScoped<AppDbContext>();
 
 services.AddScoped<IValidator<CreateCategoryDto>, CreateCategoryDtoValidator>();
 
+services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.AllowAnyHeader();
+            policy.AllowAnyMethod();
+            policy.AllowAnyOrigin();
+        }
+    );
+});
 services.AddLocalization();
 services.AddApiVersioning();
 services.AddControllers()
@@ -31,6 +42,7 @@ app.UseRequestLocalization(options =>
     options.FallBackToParentCultures = true;
 });
 
+app.UseCors();
 app.UseStaticFiles();
 app.UseApiVersioning();
 app.UsePathBase("/api/");
