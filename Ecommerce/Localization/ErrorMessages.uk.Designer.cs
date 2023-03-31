@@ -80,5 +80,23 @@ namespace Ecommerce.Localization {
                 return ResourceManager.GetString("AlreadyExists", resourceCulture);
             }
         }
+        
+        internal static string ImageMustBeJpg {
+            get {
+                return ResourceManager.GetString("ImageMustBeJpg", resourceCulture);
+            }
+        }
+        
+        internal static string NotExists {
+            get {
+                return ResourceManager.GetString("NotExists", resourceCulture);
+            }
+        }
+        
+        internal static string Product {
+            get {
+                return ResourceManager.GetString("Product", resourceCulture);
+            }
+        }
     }
 }

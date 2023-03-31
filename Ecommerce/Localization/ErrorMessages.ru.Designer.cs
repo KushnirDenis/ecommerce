@@ -92,5 +92,17 @@ namespace Ecommerce.Localization {
                 return ResourceManager.GetString("NotExists", resourceCulture);
             }
         }
+        
+        internal static string FilenameCannotBeEmpty {
+            get {
+                return ResourceManager.GetString("FilenameCannotBeEmpty", resourceCulture);
+            }
+        }
+        
+        internal static string Product {
+            get {
+                return ResourceManager.GetString("Product", resourceCulture);
+            }
+        }
     }
 }

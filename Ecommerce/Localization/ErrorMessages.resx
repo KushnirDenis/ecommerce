@@ -42,4 +42,10 @@
     <data name="NotExists" xml:space="preserve">
         <value />
     </data>
+    <data name="FilenameCannotBeEmpty" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Product" xml:space="preserve">
+        <value />
+    </data>
 </root>

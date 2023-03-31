@@ -42,4 +42,10 @@
     <data name="NotExists" xml:space="preserve">
         <value>Не существует</value>
     </data>
+    <data name="FilenameCannotBeEmpty" xml:space="preserve">
+        <value>Имя файла не может быть пустым</value>
+    </data>
+    <data name="Product" xml:space="preserve">
+        <value>Продукт</value>
+    </data>
 </root>

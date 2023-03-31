@@ -36,4 +36,13 @@
     <data name="AlreadyExists" xml:space="preserve">
         <value>Вже існує</value>
     </data>
+    <data name="ImageMustBeJpg" xml:space="preserve">
+        <value>Зображення повинно мати формат jpg/jpeg!</value>
+    </data>
+    <data name="NotExists" xml:space="preserve">
+        <value>Не існує</value>
+    </data>
+    <data name="Product" xml:space="preserve">
+        <value>Продукт</value>
+    </data>
 </root>
