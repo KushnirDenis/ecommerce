@@ -21,10 +21,6 @@ public class CreateCategoryDtoValidator : AbstractValidator<CreateCategoryDto>
     {
         RuleForEach(c => c.Names)
             .SetValidator(new CategoryNameDtoValidator(localizer));
-        RuleFor(c => c.Image)
-            .NotNull()
-            .NotEmpty()
-            .Must(x => x.Base64.StartsWith("data:image/jpeg"))
-            .WithMessage(localizer["ImageMustBeJpg"]);
+        RuleFor(c => c.Image).SetValidator(new ImageValidator(localizer));
     }
 }
