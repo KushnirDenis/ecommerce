@@ -61,6 +61,12 @@ public class CategoriesController : ControllerBase
         return categories;
     }
 
+    // [HttpGet("{categoryId:int}/products")]
+    // public async Task<IActionResult> GetProducts(int categoryId)
+    // {
+    //     
+    // }
+
 
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateCategoryDto categoryDto)
@@ -112,7 +118,8 @@ public class CategoriesController : ControllerBase
             return StatusCode(500, new ErrorMessage(_localizer["InternalError"]));
         }
 
-        var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/", filename);
+        var imagePath = Path.Combine(Directory.GetCurrentDirectory(), 
+            "wwwroot/images/categories", filename);
 
         await categoryDto.Image.SaveToFile(imagePath);
 

@@ -10,6 +10,7 @@ var services = builder.Services;
 services.AddScoped<AppDbContext>();
 
 services.AddScoped<IValidator<CreateCategoryDto>, CreateCategoryDtoValidator>();
+services.AddScoped<IValidator<CreateProductDto>, CreateProductDtoValidator>();
 
 services.AddCors(options =>
 {
